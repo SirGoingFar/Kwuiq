@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Kwuiq</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="bg_image">bg_image</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="sign_in_prompt">Enter your correct username and password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="password_visibility_toggle">password_visibility_toggle</string>
+    <string name="background_image">background_image</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgotten_password_prompt">Forgot password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="get_started">Get started</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="just_few_details_to_get_you_started">Just few details to get you started</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="surname">Surname</string>
+    <string name="other_name_s">Other Name(s)</string>
+    <string name="phone_number">Phone Number</string>
+
+    <string name="title_activity_recover_password">RecoverPasswordActivity</string>
+
+    <string name="recover_password">Recover password</string>
+    <string name="enter_your_registered_e_mail_address">Enter your registered e-mail address</string>
+</resources>

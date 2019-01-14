@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:src="@drawable/ic_person_add"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="@dimen/dimen_1dp" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_30dp"
+            android:background="@color/colorWhite_opacity50"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_20dp">
+
+            <!--Get started-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:text="@string/get_started"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_18sp"
+                android:textStyle="bold" />
+
+            <!--Just few details to get you started-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_30dp"
+                android:text="@string/just_few_details_to_get_you_started"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_12sp" />
+
+            <!--Surname-->
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="@string/surname"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="@dimen/text_14sp" />
+
+            <!--Other Name(s)-->
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:drawableStart="@drawable/ic_person"
+                android:hint="@string/other_name_s"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName|textCapWords"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="@dimen/text_14sp" />
+
+            <!--Phone Number-->
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_call"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:drawableStart="@drawable/ic_call"
+                android:hint="@string/phone_number"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="@dimen/text_14sp" />
+
+            <!--E-mail-->
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:background="@drawable/rounded_white"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:drawableStart="@drawable/ic_email"
+                android:hint="@string/e_mail"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:textColorHint="@color/colorGrey"
+                android:textSize="@dimen/text_14sp" />
+
+            <!--Password Layout-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp">
+
+                <!--Password-->
+                <AutoCompleteTextView
+                    android:id="@+id/atv_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:background="@drawable/rounded_white"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:drawablePadding="@dimen/dimen_5dp"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/dimen_10dp"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/text_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:contentDescription="@string/password_visibility_toggle"
+                    android:src="@drawable/ic_visibility"
+                    android:tint="@color/colorGrey" />
+            </RelativeLayout>
+
+            <!--Password Layout-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp">
+
+                <!--Confirm Password-->
+                <AutoCompleteTextView
+                    android:id="@+id/atv_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:background="@drawable/rounded_white"
+                    android:drawableLeft="@drawable/ic_asterisk"
+                    android:drawablePadding="@dimen/dimen_5dp"
+                    android:drawableStart="@drawable/ic_asterisk"
+                    android:hint="@string/confirm_password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/dimen_10dp"
+                    android:paddingLeft="@dimen/dimen_10dp"
+                    android:paddingRight="@dimen/dimen_10dp"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:textColorHint="@color/colorGrey"
+                    android:textSize="@dimen/text_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:contentDescription="@string/password_visibility_toggle"
+                    android:src="@drawable/ic_visibility"
+                    android:tint="@color/colorGrey" />
+            </RelativeLayout>
+
+            <Button
+                style="@style/ActionButton"
+                android:text="@string/register"/>
+
+            <TextView
+                android:id="@+id/tv_sign_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/sign_in"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
