@@ -8,9 +8,11 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.eemf.sirgoingfar.kwuiq.R;
+import com.eemf.sirgoingfar.kwuiq.activities.LoginActivity;
 import com.eemf.sirgoingfar.kwuiq.activities.RecoverPasswordActivity;
 import com.eemf.sirgoingfar.kwuiq.activities.RegisterActivity;
 
@@ -38,19 +40,28 @@ public class RecoverPasswordStep1Fragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recover_password_step1, container, false);
 
-        TextView txt = view.findViewById(R.id.tv_sign_up);
+        TextView txt = view.findViewById(R.id.tv_sign_in);
         txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLoginActivity();
+            }
+        });
+
+        TextView txt2 = view.findViewById(R.id.tv_sign_up);
+        txt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRegisterActivity();
             }
         });
 
-        TextView txt2 = view.findViewById(R.id.tv_forgotten_password);
-        txt2.setOnClickListener(new View.OnClickListener() {
+        Button btn = view.findViewById(R.id.btn_reset_password);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openForgottenPasswordActivity();
+                //clear backstgiack
+                mContext.startFragment(RecoverPasswordStep2Fragment.newInstance(), true);
             }
         });
 
@@ -63,9 +74,9 @@ public class RecoverPasswordStep1Fragment extends BaseFragment {
         startActivity(openRegisterActivity);
     }
 
-    void openForgottenPasswordActivity(){
-        Intent openForgottenPasswordActivity = new Intent(mContext, RecoverPasswordActivity.class);
-        mContext.activityStackClearFlagSetter(openForgottenPasswordActivity);
-        startActivity(openForgottenPasswordActivity);
+    void openLoginActivity(){
+        Intent openLoginActivity = new Intent(mContext, LoginActivity.class);
+        mContext.activityStackClearFlagSetter(openLoginActivity);
+        startActivity(openLoginActivity);
     }
 }
