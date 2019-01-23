@@ -28,4 +28,9 @@
     <string name="reset_password">Reset password</string>
     <string name="enter_a_new_password">Enter a new password</string>
     <string name="recover_password">Recover password</string>
+    <string name="code_verification">Code Verification</string>
+    <string name="close_button">close_button</string>
+    <string name="enter_verification_code">Enter Verification Code</string>
+    <string name="enter_the_verification_code_that_was_sent_to_your_mail_inbox_to_continue">Enter the verification code that was sent to your mail inbox to continue.</string>
+    <string name="verify_code">Verify Code</string>
 </resources>

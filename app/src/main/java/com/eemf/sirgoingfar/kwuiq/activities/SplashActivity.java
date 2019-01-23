@@ -16,7 +16,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        showWelcomeText();
+//        showWelcomeText();
 
         switchScreen();
     }
@@ -42,6 +42,6 @@ public class SplashActivity extends BaseActivity {
                 activityStackClearFlagSetter(openLoginActivity);
                 startActivity(openLoginActivity);
             }
-        }, 2000);
+        }, 3000);
     }
 }

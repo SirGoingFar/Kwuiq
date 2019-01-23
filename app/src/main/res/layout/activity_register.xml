@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
     android:scrollbars="none">
 
     <LinearLayout
@@ -17,8 +17,7 @@
             android:layout_width="@dimen/dimen_100dp"
             android:layout_height="@dimen/dimen_100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimen_20dp"
-            android:src="@drawable/ic_person_add"
+            android:src="@drawable/ic_person_white"
             app:civ_border_color="@color/colorAccent"
             app:civ_border_width="@dimen/dimen_1dp" />
 
@@ -209,7 +208,7 @@
 
             <Button
                 style="@style/ActionButton"
-                android:text="@string/register"/>
+                android:text="@string/register" />
 
             <TextView
                 android:id="@+id/tv_sign_in"
@@ -225,5 +224,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>
