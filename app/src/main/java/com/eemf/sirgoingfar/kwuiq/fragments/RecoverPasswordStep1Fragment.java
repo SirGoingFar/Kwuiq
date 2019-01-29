@@ -3,20 +3,24 @@ package com.eemf.sirgoingfar.kwuiq.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.eemf.sirgoingfar.kwuiq.R;
 import com.eemf.sirgoingfar.kwuiq.activities.LoginActivity;
 import com.eemf.sirgoingfar.kwuiq.activities.RecoverPasswordActivity;
 import com.eemf.sirgoingfar.kwuiq.activities.RegisterActivity;
+import com.eemf.sirgoingfar.kwuiq.dialog_fragments.RecoverPasswordCodeVerificationDialogFragment;
 
-public class RecoverPasswordStep1Fragment extends BaseFragment {
+public class RecoverPasswordStep1Fragment extends BaseFragment implements RecoverPasswordCodeVerificationDialogFragment.OnVerifyButtonClickListener {
 
     private RecoverPasswordActivity mContext;
 
@@ -56,12 +60,23 @@ public class RecoverPasswordStep1Fragment extends BaseFragment {
             }
         });
 
-        Button btn = view.findViewById(R.id.btn_reset_password);
+        final ProgressBar pb = view.findViewById(R.id.pb_progress_loader);
+
+        Button btn = view.findViewById(R.id.btn_recover_password);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //clear backstgiack
-                mContext.startFragment(RecoverPasswordStep2Fragment.newInstance(), true);
+                pb.setVisibility(View.VISIBLE);
+                //pop dialog fragment
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Todo: clear backstack
+                        DialogFragment dialogFragment = RecoverPasswordCodeVerificationDialogFragment.newInstance(RecoverPasswordStep1Fragment.this);
+                        dialogFragment.show(mContext.getSupportFragmentManager(), RecoverPasswordCodeVerificationDialogFragment.class.getName());
+                    }
+                }, 3000);
             }
         });
 
@@ -78,5 +93,10 @@ public class RecoverPasswordStep1Fragment extends BaseFragment {
         Intent openLoginActivity = new Intent(mContext, LoginActivity.class);
         mContext.activityStackClearFlagSetter(openLoginActivity);
         startActivity(openLoginActivity);
+    }
+
+    @Override
+    public void onVerifyButtonClick() {
+        mContext.startFragment(RecoverPasswordStep2Fragment.newInstance(), true);
     }
 }
