@@ -6,10 +6,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.eemf.sirgoingfar.kwuiq.R;
+import com.eemf.sirgoingfar.kwuiq.api_communications.NetworkCallback;
+import com.eemf.sirgoingfar.kwuiq.api_communications.responses.BaseNetworkResponse;
+import com.eemf.sirgoingfar.kwuiq.models.user.UserData;
 
 import butterknife.OnClick;
 
-public class RegisterActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity implements NetworkCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +32,18 @@ public class RegisterActivity extends BaseActivity {
         Intent openLoginActivity = new Intent(this, LoginActivity.class);
         activityStackClearFlagSetter(openLoginActivity);
         startActivity(openLoginActivity);
+    }
+
+    @Override
+    public void onNetworkSuccess(BaseNetworkResponse response) {
+        if(response instanceof UserData){
+            UserData userData = (UserData) response;
+            //Todo: Use UserData
+        }
+    }
+
+    @Override
+    public void onNetworkFailure(BaseNetworkResponse response) {
+
     }
 }
