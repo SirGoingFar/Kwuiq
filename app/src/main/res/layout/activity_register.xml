@@ -14,6 +14,7 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_display_picture"
             android:layout_width="@dimen/dimen_100dp"
             android:layout_height="@dimen/dimen_100dp"
             android:layout_gravity="center"
@@ -50,6 +51,7 @@
 
             <!--Surname-->
             <AutoCompleteTextView
+                android:id="@+id/atv_surname"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_40dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
@@ -70,6 +72,7 @@
 
             <!--Other Name(s)-->
             <AutoCompleteTextView
+                android:id="@+id/atv_other_names"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_40dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
@@ -90,6 +93,7 @@
 
             <!--Phone Number-->
             <AutoCompleteTextView
+                android:id="@+id/atv_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_40dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
@@ -100,6 +104,7 @@
                 android:hint="@string/phone_number"
                 android:imeOptions="actionNext"
                 android:inputType="phone"
+                android:maxLength="13"
                 android:maxLines="1"
                 android:paddingEnd="@dimen/dimen_10dp"
                 android:paddingLeft="@dimen/dimen_10dp"
@@ -110,6 +115,7 @@
 
             <!--E-mail-->
             <AutoCompleteTextView
+                android:id="@+id/atv_email"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_40dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
@@ -154,7 +160,8 @@
                     android:textColorHint="@color/colorGrey"
                     android:textSize="@dimen/text_14sp" />
 
-                <ImageView
+                <CheckBox
+                    android:id="@+id/cb_password_visibility_toggler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -163,7 +170,7 @@
                     android:layout_marginEnd="@dimen/dimen_10dp"
                     android:layout_marginRight="@dimen/dimen_10dp"
                     android:contentDescription="@string/password_visibility_toggle"
-                    android:src="@drawable/ic_visibility"
+                    android:button="@drawable/ic_visibility"
                     android:tint="@color/colorGrey" />
             </RelativeLayout>
 
@@ -193,7 +200,8 @@
                     android:textColorHint="@color/colorGrey"
                     android:textSize="@dimen/text_14sp" />
 
-                <ImageView
+                <CheckBox
+                    android:id="@+id/cb_confirm_password_visibility_toggler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -202,11 +210,12 @@
                     android:layout_marginEnd="@dimen/dimen_10dp"
                     android:layout_marginRight="@dimen/dimen_10dp"
                     android:contentDescription="@string/password_visibility_toggle"
-                    android:src="@drawable/ic_visibility"
+                    android:button="@drawable/ic_visibility"
                     android:tint="@color/colorGrey" />
             </RelativeLayout>
 
             <Button
+                android:id="@+id/btn_register"
                 style="@style/ActionButton"
                 android:text="@string/register" />
 

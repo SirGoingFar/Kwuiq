@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.eemf.sirgoingfar.kwuiq.utils.Prefs;
+
 import java.util.List;
 
 
@@ -13,6 +15,7 @@ public class BaseDialogFragment extends DialogFragment {
 
     protected FragmentManager fragmentManager;
     protected AppCompatActivity appCompatActivity;
+    protected Prefs prefs;
 
     @Override
     public void onAttach(Context context) {
@@ -22,6 +25,7 @@ public class BaseDialogFragment extends DialogFragment {
             appCompatActivity = (AppCompatActivity) context;
 
         fragmentManager = getFragmentManager();
+        prefs = Prefs.getInstance();
     }
 
     protected void dismissAllDialogFragments() {

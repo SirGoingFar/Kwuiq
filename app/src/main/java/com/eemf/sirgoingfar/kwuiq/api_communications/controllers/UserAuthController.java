@@ -2,12 +2,14 @@ package com.eemf.sirgoingfar.kwuiq.api_communications.controllers;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.eemf.sirgoingfar.kwuiq.api_communications.NetworkCallback;
 import com.eemf.sirgoingfar.kwuiq.api_communications.requests.UserAuthRequest;
 import com.eemf.sirgoingfar.kwuiq.api_communications.responses.CreateCustomerResponse;
+import com.eemf.sirgoingfar.kwuiq.api_communications.responses.CustomerLoginResponse;
 import com.eemf.sirgoingfar.kwuiq.api_communications.responses.SuccessResponse;
-import com.eemf.sirgoingfar.kwuiq.models.user.User;
+import com.eemf.sirgoingfar.kwuiq.models.user.UserData;
 import com.eemf.sirgoingfar.kwuiq.utils.RetrofitUtil;
 
 import retrofit2.Call;
@@ -19,19 +21,28 @@ public class UserAuthController extends BaseController {
         super(context, responseListener, showProgressDialog, isRequestCancellable);
     }
 
-    private void createCustomer(@NonNull User user, @NonNull String profilePicture) {
+    public void createCustomer(@NonNull UserData userData) {
         Call<CreateCustomerResponse.Success> request = retrofit.create(UserAuthRequest.class)
-                .createCustomer(user, RetrofitUtil.createPartFromFile(context, "profile_pic", profilePicture));
+                .createCustomer(userData);
         call(request);
     }
 
-    private void customerSignIn(@NonNull String email, @NonNull String password) {
+    public void customerSignIn(@NonNull String email, @NonNull String password) {
+        UserData userData = new UserData.Builder()
+                .setEmail(email)
+                .setPassword(password)
+                .build();
+
+        Call<CustomerLoginResponse.Success> request = retrofit.create(UserAuthRequest.class)
+                .customerLogin(userData);
+
+        call(request);
     }
 
-    private void forgotPassword() {
+    public void forgotPassword() {
     }
 
-    private void resetPassword() {
+    public void resetPassword() {
     }
 
     @Override

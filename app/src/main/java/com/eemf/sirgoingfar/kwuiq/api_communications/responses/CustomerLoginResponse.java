@@ -3,9 +3,9 @@ package com.eemf.sirgoingfar.kwuiq.api_communications.responses;
 import com.eemf.sirgoingfar.kwuiq.models.user.UserData;
 import com.google.gson.annotations.SerializedName;
 
-public class CreateCustomerResponse {
+public class CustomerLoginResponse {
 
-    public class Success extends SuccessResponse {
+    public class Success extends SuccessResponse{
 
         @SerializedName("data")
         UserData user;
@@ -15,6 +15,5 @@ public class CreateCustomerResponse {
         }
     }
 
-    public class Failure extends FailureResponse {
-    }
+    public class Failure extends FailureResponse{}
 }

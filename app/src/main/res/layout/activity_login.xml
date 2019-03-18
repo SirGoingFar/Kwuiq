@@ -51,6 +51,7 @@
 
             <!--E-mail-->
             <AutoCompleteTextView
+                android:id="@+id/atv_email"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_40dp"
                 android:layout_marginBottom="@dimen/dimen_20dp"
@@ -93,7 +94,8 @@
                     android:paddingStart="@dimen/dimen_10dp"
                     android:textColorHint="@color/colorGrey" />
 
-                <ImageView
+                <CheckBox
+                    android:id="@+id/cb_password_visibility_toggler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -102,11 +104,12 @@
                     android:layout_marginEnd="@dimen/dimen_10dp"
                     android:layout_marginRight="@dimen/dimen_10dp"
                     android:contentDescription="@string/password_visibility_toggle"
-                    android:src="@drawable/ic_visibility"
+                    android:button="@drawable/ic_visibility"
                     android:tint="@color/colorGrey" />
             </RelativeLayout>
 
             <Button
+                android:id="@+id/btn_sign_in"
                 style="@style/ActionButton"
                 android:text="@string/sign_in" />
 

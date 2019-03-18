@@ -7,18 +7,30 @@ public class FailureResponse extends BaseNetworkResponse {
     @SerializedName("error_code")
     String errorCode;
 
-    @SerializedName("error_status")
-    String errorStatus;
+    @SerializedName("error_action")
+    String errorAction;
 
-    @SerializedName("error_message")
+    @SerializedName("message")
     String errorMessage;
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public void setErrorAction(String errorAction) {
+        this.errorAction = errorAction;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
     public String getErrorCode() {
         return errorCode;
     }
 
-    public String getErrorStatus() {
-        return errorStatus;
+    public String getErrorAction() {
+        return errorAction;
     }
 
     public String getErrorMessage() {

@@ -1,9 +1,15 @@
 package com.eemf.sirgoingfar.kwuiq.activities;
 
 import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,8 +18,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import com.eemf.sirgoingfar.kwuiq.R;
+import com.eemf.sirgoingfar.kwuiq.models.user.UserData;
+import com.eemf.sirgoingfar.kwuiq.utils.Prefs;
 
 import java.util.List;
 
@@ -23,6 +32,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private Fragment currentFragment;
     protected FragmentManager fragmentManager = getSupportFragmentManager();
+    protected Prefs prefs;
+    private MutableLiveData<Boolean> isCustomerVerified = new MutableLiveData<>();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        prefs = Prefs.getInstance();
+    }
 
     public void activityStackClearFlagSetter(Intent intent) {
         intent.replaceExtras(intent);
@@ -133,4 +151,56 @@ public abstract class BaseActivity extends AppCompatActivity {
         fragmentManager.popBackStack(fragmentName, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
+    protected void setUserSessionAndOpenDashboard(@NonNull String verifiedEmail, @NonNull String verifiedPassword,
+                                                  @NonNull UserData userdata){
+
+        //save Login Credentials to cache
+        prefs.saveEmail(verifiedEmail);
+        prefs.savePassword(verifiedPassword);
+
+        //save UserDataResponse to cache
+        prefs.saveCustomerDataAndSetSessionData(userdata);
+
+        //switch to the dashboard if the observer is
+        getIsCustomerVerified().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean canSwitchToDashboard) {
+                if (isActivityStarted() && canSwitchToDashboard)
+                    openDashboard();
+
+                //after the Observer has been notified, invalidate for security reasons
+//                setIsCustomerVerified(false);
+            }
+        });
+    }
+
+    private void openDashboard() {
+
+        //Todo: Open dashboard
+        toastLong("Dashboard entered");
+    }
+
+    public void toastShort(@NonNull String toastMessage){
+
+        if(TextUtils.isEmpty(toastMessage))
+            return;
+
+        Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    public void toastLong(@NonNull String toastMessage){
+
+        if(TextUtils.isEmpty(toastMessage))
+            return;
+
+        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+    }
+
+    protected MutableLiveData<Boolean> getIsCustomerVerified() {
+        return isCustomerVerified;
+    }
+
+    protected void setIsCustomerVerified(boolean isCustomerVerified) {
+        this.isCustomerVerified.setValue(isCustomerVerified);
+    }
 }
